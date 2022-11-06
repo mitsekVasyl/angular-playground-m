@@ -1,19 +1,27 @@
 <div class="container">
-  <app-cockpit
-    (serverCreated)="onServerAdded($event)"
-    (blueprintCreated)="onBlueprintAdded($event)"
-  ></app-cockpit>
-  <hr>
+  <app-game-control (intervalEvent)="onIntervalEvent($event)"></app-game-control>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element
-        *ngFor="let serverElement of serverElements"
-        [srvElement]="serverElement">
-        <p>
-          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
-          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
-        </p>
-      </app-server-element>
+      <app-even *ngFor="let n of evenNumbers" [number]="n"></app-even>
+      <app-odd *ngFor="let n of oddNumbers" [number]="n"></app-odd>
     </div>
   </div>
+
+<!--  <app-cockpit-->
+<!--    (serverCreated)="onServerAdded($event)"-->
+<!--    (blueprintCreated)="onBlueprintAdded($event)"-->
+<!--  ></app-cockpit>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-xs-12">-->
+<!--      <app-server-element-->
+<!--        *ngFor="let serverElement of serverElements"-->
+<!--        [srvElement]="serverElement">-->
+<!--        <p>-->
+<!--          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>-->
+<!--          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>-->
+<!--        </p>-->
+<!--      </app-server-element>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>
