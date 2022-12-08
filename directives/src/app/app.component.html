@@ -15,7 +15,13 @@
       </ng-template>
       <p appBasicHighlight>Style me with basic directive!</p>
       <p appBetterHighlight>Style me with better directive!</p>
-      <p appBetterHighlight2 [highlightColor]="'purple'">Style with host + property binding!</p>
+      <p
+        appBetterHighlight2
+        onHoverColor="white"
+        highlightColor="purple"
+        defaultHighlightColor="transparent"
+        defaultColor="black"
+      >Style with host + property binding!</p>
     </div>
   </div>
 </div>
