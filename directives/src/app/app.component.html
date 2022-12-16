@@ -11,8 +11,11 @@
         </li>
       </ul>
       <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
+        <p>Only odd ngIf</p>
       </ng-template>
+      <div *appUnless="onlyOdd">
+        <p>Custom structural directive works!</p>
+      </div>
       <p appBasicHighlight>Style me with basic directive!</p>
       <p appBetterHighlight>Style me with better directive!</p>
       <p
