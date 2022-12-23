@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoggingService } from "../services/logging.service";
+import { AccountService } from "../services/account.service";
 
 @Component({
   selector: 'app-new-account',
@@ -8,15 +9,12 @@ import { LoggingService } from "../services/logging.service";
   providers: [LoggingService]
 })
 export class NewAccountComponent {
-  @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
-
   // passing an instance of LoggingService into component without manual instantiation
-  constructor(private logginService: LoggingService) {};
+  constructor(private logginService: LoggingService,
+              private accountService: AccountService) {};
+
   onCreateAccount(accountName: string, accountStatus: string) {
-    this.accountAdded.emit({
-      name: accountName,
-      status: accountStatus
-    });
+    this.accountService.addAccount(accountName, accountStatus)
     // Extracted into separate service:
     // console.log('A server status changed, new status: ' + accountStatus);
     this.logginService.logStatusChange(accountStatus)
