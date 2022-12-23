@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
+import { LoggingService } from "./services/logging.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { NewAccountComponent } from './new-account/new-account.component';
     BrowserModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [LoggingService],  // providing on this level gives injection into services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
