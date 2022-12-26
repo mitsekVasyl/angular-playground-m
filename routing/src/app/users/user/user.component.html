@@ -1,2 +1,5 @@
-<p>User with ID _ID_ loaded.</p>
-<p>User name is _NAME_</p>
+<p>User with ID '{{ user.id }}' loaded.</p>
+<p>User name is '{{ user.name }}'</p>
+<hr>
+<!-- passing absolute path with parameter using [routerLink] -->
+<a [routerLink]="['/users', '888']">User 888</a>
