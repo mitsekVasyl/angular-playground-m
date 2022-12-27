@@ -22,4 +22,11 @@ export class HomeComponent implements OnInit {
     // using relative path
     this.router.navigate(['users'], {relativeTo: this.route});
   }
+
+  onServerButtonClicked(id: number) {
+    // passing query parameter and fragment into the router
+    this.router.navigate(
+      ['/servers', id, 'edit'],
+      {queryParams: {allowEdit: true}, fragment: "loading"});
+  }
 }
