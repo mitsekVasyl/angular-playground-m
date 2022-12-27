@@ -15,8 +15,11 @@ export class ServerComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let serverId = this.activatedRoute.snapshot.params['id'];
-    this.server = this.serversService.getServer(parseInt(serverId));
+    this.server = this.serversService.getServer(+this.activatedRoute.snapshot.params['id']);
+
+    this.activatedRoute.params.subscribe((params: object) => {
+      this.server = this.serversService.getServer(+params['id']);
+    })
   }
 
 }
